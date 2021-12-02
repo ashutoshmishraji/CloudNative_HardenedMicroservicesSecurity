@@ -1,0 +1,6 @@
+{
+  "debug": true,
+  "live-restore" : true,
+  "no-new-privileges": true,
+  "userland-proxy": false
+}

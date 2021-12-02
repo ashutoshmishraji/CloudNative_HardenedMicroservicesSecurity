@@ -1,0 +1,56 @@
+Docker Threat Modeling :
+Given Docker's system components and the STRIDE framework, identify five potential threats 
+that may arise.
+
+1. Tampering:
+   Basically TLS CA certificate file is used to authenticate the Docker server based on a given CA certificate, which must be owned by individuals or group managed by root, so that less privileged users cannot tamper/modify it.
+
+2. Repudiation:
+   Docker daemon runs with root privileges and therefore all docker activities/usages must be audited and monitored to prevent malicious usage. It can be achieved by regular auditing of daemon.json file.
+
+3. Information Disclosure:
+   Docker daemon files are easily accessible and any mis-configuration will lead to insecured inter-container communication.
+
+4. Denial of Service:
+   Multiple fake requests/flood of requests can make the application un-reachable.
+
+5. Elevation of Privilege:
+   Containers are not restricted from acquiring new privileges. Any malicious container can acquire new privileges which could be prevented by setting up 'no-new-privileges' flag.
+
+Kubernetes Threat Modeling :
+Given Kubernetes' system components and the STRIDE framework, identify five potential threats 
+that may arise.
+1. Spoofing:
+   "apiserver" is one of the critical component of a kubernetes cluster, and any unauthorized access may compromise the kubernetes cluster.  Disabling basic authentication, removing internet access to the master/api-server methods can be used to avoid such issues.
+
+2. Tampering:
+   An attacker accesses the kubernetes cluster and installs malware onto one or more pods.
+
+3. Repudiation:
+   by default, kubernetes does not allow certificate recovation and repudiation can happen due to that.
+
+4. Information Disclosure:
+   Attacker may flood the pods with requests to overwhelm the cluster with request.
+
+5. Denial of Service:
+   In order to ensure that kube-proxy does not expose information, the `--kubeconfig` should be set to permissions 644 or less permissive. This threat is associated with "Information disclosure".
+
+Docker-bench Run Results and Analysis
+From the failed findings, select and document 3 findings from the Docker-bench results that 
+you want to harden based on the 5 attack surface areas you identified in Step 1. At 
+least 1 of the 3 hardened findings should be different from the ones mentioned in the 
+exercise (i.e. 5.10, 5.14, and 5.22).
+1. 2.14
+   Ensure containers are restricted from acquiring new privileges
+
+2. 2.15
+   Ensure live restore is enabled
+
+3. 2.16
+   Ensure Userland Proxy is Disabled
+
+4. 3.17
+   Ensure that daemon.json file ownership is set to root:root (Automated)
+
+5. 3.18 
+   Ensure that daemon.json file permissions are set to 644 or more restrictive (Automated)

@@ -1,0 +1,224 @@
+ashuapsuser@APS-Linux:~/CloudNative_HardenedMicroservicesSecurity/starter$ rke up
+INFO[0000] Running RKE version: v1.3.2
+INFO[0000] Initiating Kubernetes cluster
+INFO[0000] [dialer] Setup tunnel for host [192.168.50.101]
+INFO[0000] Checking if container [cluster-state-deployer] is running on host [192.168.50.101], try #1
+INFO[0000] [certificates] Generating CA kubernetes certificates
+INFO[0000] [certificates] Generating Kubernetes API server aggregation layer requestheader client CA certificates
+INFO[0001] [certificates] GenerateServingCertificate is disabled, checking if there are unused kubelet certificates
+INFO[0001] [certificates] Generating Kubernetes API server certificates
+INFO[0001] [certificates] Generating Service account token key
+INFO[0001] [certificates] Generating Kube Controller certificates
+INFO[0001] [certificates] Generating Kube Scheduler certificates
+INFO[0001] [certificates] Generating Kube Proxy certificates
+INFO[0001] [certificates] Generating Node certificate
+INFO[0001] [certificates] Generating admin certificates and kubeconfig
+INFO[0002] [certificates] Generating Kubernetes API server proxy client certificates
+INFO[0002] [certificates] Generating kube-etcd-192-168-50-101 certificate and key
+INFO[0002] Successfully Deployed state file at [./cluster.rkestate]
+INFO[0002] Building Kubernetes cluster
+INFO[0002] [dialer] Setup tunnel for host [192.168.50.101]
+INFO[0002] [network] Deploying port listener containers
+INFO[0002] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0004] Starting container [rke-etcd-port-listener] on host [192.168.50.101], try #1
+INFO[0007] [network] Successfully started [rke-etcd-port-listener] container on host [192.168.50.101]
+INFO[0007] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0009] Starting container [rke-cp-port-listener] on host [192.168.50.101], try #1
+INFO[0011] [network] Successfully started [rke-cp-port-listener] container on host [192.168.50.101]
+INFO[0011] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0012] Starting container [rke-worker-port-listener] on host [192.168.50.101], try #1
+INFO[0014] [network] Successfully started [rke-worker-port-listener] container on host [192.168.50.101]
+INFO[0014] [network] Port listener containers deployed successfully
+INFO[0014] [network] Running control plane -> etcd port checks
+INFO[0014] [network] Checking if host [192.168.50.101] can connect to host(s) [192.168.50.101] on port(s) [2379], try #1
+INFO[0014] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0016] Starting container [rke-port-checker] on host [192.168.50.101], try #1
+INFO[0017] [network] Successfully started [rke-port-checker] container on host [192.168.50.101]
+INFO[0018] Removing container [rke-port-checker] on host [192.168.50.101], try #1
+INFO[0018] [network] Running control plane -> worker port checks
+INFO[0018] [network] Checking if host [192.168.50.101] can connect to host(s) [192.168.50.101] on port(s) [10250], try #1
+INFO[0018] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0018] Starting container [rke-port-checker] on host [192.168.50.101], try #1
+INFO[0019] [network] Successfully started [rke-port-checker] container on host [192.168.50.101]
+INFO[0019] Removing container [rke-port-checker] on host [192.168.50.101], try #1
+INFO[0019] [network] Running workers -> control plane port checks
+INFO[0019] [network] Checking if host [192.168.50.101] can connect to host(s) [192.168.50.101] on port(s) [6443], try #1
+INFO[0020] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0020] Starting container [rke-port-checker] on host [192.168.50.101], try #1
+INFO[0021] [network] Successfully started [rke-port-checker] container on host [192.168.50.101]
+INFO[0022] Removing container [rke-port-checker] on host [192.168.50.101], try #1
+INFO[0022] [network] Checking KubeAPI port Control Plane hosts
+INFO[0022] [network] Removing port listener containers
+INFO[0022] Removing container [rke-etcd-port-listener] on host [192.168.50.101], try #1
+INFO[0022] [remove/rke-etcd-port-listener] Successfully removed container on host [192.168.50.101]
+INFO[0022] Removing container [rke-cp-port-listener] on host [192.168.50.101], try #1
+INFO[0023] [remove/rke-cp-port-listener] Successfully removed container on host [192.168.50.101]
+INFO[0023] Removing container [rke-worker-port-listener] on host [192.168.50.101], try #1
+INFO[0024] [remove/rke-worker-port-listener] Successfully removed container on host [192.168.50.101]
+INFO[0024] [network] Port listener containers removed successfully
+INFO[0024] [certificates] Deploying kubernetes certificates to Cluster nodes
+INFO[0024] Checking if container [cert-deployer] is running on host [192.168.50.101], try #1
+INFO[0024] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0025] Starting container [cert-deployer] on host [192.168.50.101], try #1
+INFO[0027] Checking if container [cert-deployer] is running on host [192.168.50.101], try #1
+INFO[0032] Checking if container [cert-deployer] is running on host [192.168.50.101], try #1
+INFO[0032] Removing container [cert-deployer] on host [192.168.50.101], try #1
+INFO[0032] [reconcile] Rebuilding and updating local kube config
+INFO[0032] Successfully Deployed local admin kubeconfig at [./kube_config_cluster.yml]
+WARN[0032] [reconcile] host [192.168.50.101] is a control plane node without reachable Kubernetes API endpoint in the cluster
+WARN[0032] [reconcile] no control plane node with reachable Kubernetes API endpoint in the cluster found
+INFO[0032] [certificates] Successfully deployed kubernetes certificates to Cluster nodes
+INFO[0032] [file-deploy] Deploying file [/etc/kubernetes/audit-policy.yaml] to node [192.168.50.101]
+INFO[0032] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0032] Starting container [file-deployer] on host [192.168.50.101], try #1
+INFO[0034] Successfully started [file-deployer] container on host [192.168.50.101]
+INFO[0034] Waiting for [file-deployer] container to exit on host [192.168.50.101]
+INFO[0034] Waiting for [file-deployer] container to exit on host [192.168.50.101]
+INFO[0034] Container [file-deployer] is still running on host [192.168.50.101]: stderr: [], stdout: []
+INFO[0035] Waiting for [file-deployer] container to exit on host [192.168.50.101]
+INFO[0035] Removing container [file-deployer] on host [192.168.50.101], try #1
+INFO[0035] [remove/file-deployer] Successfully removed container on host [192.168.50.101]
+INFO[0035] [/etc/kubernetes/audit-policy.yaml] Successfully deployed audit policy file to Cluster control nodes
+INFO[0035] [reconcile] Reconciling cluster state
+INFO[0035] [reconcile] This is newly generated cluster
+INFO[0035] Pre-pulling kubernetes images
+INFO[0035] Pulling image [rancher/hyperkube:v1.20.4-rancher1] on host [192.168.50.101], try #1
+INFO[0269] Image [rancher/hyperkube:v1.20.4-rancher1] exists on host [192.168.50.101]
+INFO[0269] Kubernetes images pulled successfully
+INFO[0269] [etcd] Building up etcd plane..
+INFO[0269] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0283] Starting container [etcd-fix-perm] on host [192.168.50.101], try #1
+INFO[0285] Successfully started [etcd-fix-perm] container on host [192.168.50.101]
+INFO[0285] Waiting for [etcd-fix-perm] container to exit on host [192.168.50.101]
+INFO[0285] Waiting for [etcd-fix-perm] container to exit on host [192.168.50.101]
+INFO[0285] Removing container [etcd-fix-perm] on host [192.168.50.101], try #1
+INFO[0285] [remove/etcd-fix-perm] Successfully removed container on host [192.168.50.101]
+INFO[0285] Pulling image [rancher/coreos-etcd:v3.4.14-rancher1] on host [192.168.50.101], try #1
+INFO[0296] Image [rancher/coreos-etcd:v3.4.14-rancher1] exists on host [192.168.50.101]
+INFO[0302] Starting container [etcd] on host [192.168.50.101], try #1
+INFO[0303] [etcd] Successfully started [etcd] container on host [192.168.50.101]
+INFO[0303] [etcd] Running rolling snapshot container [etcd-snapshot-once] on host [192.168.50.101]
+INFO[0303] Pulling image [rancher/rke-tools:v0.1.78] on host [192.168.50.101], try #1
+INFO[0329] Image [rancher/rke-tools:v0.1.78] exists on host [192.168.50.101]
+INFO[0357] Starting container [etcd-rolling-snapshots] on host [192.168.50.101], try #1
+INFO[0358] [etcd] Successfully started [etcd-rolling-snapshots] container on host [192.168.50.101]
+INFO[0363] Image [rancher/rke-tools:v0.1.78] exists on host [192.168.50.101]
+INFO[0370] Starting container [rke-bundle-cert] on host [192.168.50.101], try #1
+INFO[0371] [certificates] Successfully started [rke-bundle-cert] container on host [192.168.50.101]
+INFO[0371] Waiting for [rke-bundle-cert] container to exit on host [192.168.50.101]
+INFO[0371] Container [rke-bundle-cert] is still running on host [192.168.50.101]: stderr: [], stdout: []
+INFO[0372] Waiting for [rke-bundle-cert] container to exit on host [192.168.50.101]
+INFO[0372] [certificates] successfully saved certificate bundle [/opt/rke/etcd-snapshots//pki.bundle.tar.gz] on host [192.168.50.101]
+INFO[0372] Removing container [rke-bundle-cert] on host [192.168.50.101], try #1
+INFO[0373] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0373] Starting container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0374] [etcd] Successfully started [rke-log-linker] container on host [192.168.50.101]
+INFO[0374] Removing container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0375] [remove/rke-log-linker] Successfully removed container on host [192.168.50.101]
+INFO[0375] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0376] Starting container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0377] [etcd] Successfully started [rke-log-linker] container on host [192.168.50.101]
+INFO[0377] Removing container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0377] [remove/rke-log-linker] Successfully removed container on host [192.168.50.101]
+INFO[0377] [etcd] Successfully started etcd plane.. Checking etcd cluster health
+INFO[0378] [etcd] etcd host [192.168.50.101] reported healthy=true
+INFO[0378] [controlplane] Building up Controller Plane..
+INFO[0378] Checking if container [service-sidekick] is running on host [192.168.50.101], try #1
+INFO[0378] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0378] Image [rancher/hyperkube:v1.20.4-rancher1] exists on host [192.168.50.101]
+INFO[0378] Starting container [kube-apiserver] on host [192.168.50.101], try #1
+INFO[0380] [controlplane] Successfully started [kube-apiserver] container on host [192.168.50.101]
+INFO[0380] [healthcheck] Start Healthcheck on service [kube-apiserver] on host [192.168.50.101]
+INFO[0400] [healthcheck] service [kube-apiserver] on host [192.168.50.101] is healthy
+INFO[0400] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0401] Starting container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0402] [controlplane] Successfully started [rke-log-linker] container on host [192.168.50.101]
+INFO[0403] Removing container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0403] [remove/rke-log-linker] Successfully removed container on host [192.168.50.101]
+INFO[0403] Image [rancher/hyperkube:v1.20.4-rancher1] exists on host [192.168.50.101]
+INFO[0403] Starting container [kube-controller-manager] on host [192.168.50.101], try #1
+INFO[0405] [controlplane] Successfully started [kube-controller-manager] container on host [192.168.50.101]
+INFO[0405] [healthcheck] Start Healthcheck on service [kube-controller-manager] on host [192.168.50.101]
+INFO[0410] [healthcheck] service [kube-controller-manager] on host [192.168.50.101] is healthy
+INFO[0410] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0411] Starting container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0412] [controlplane] Successfully started [rke-log-linker] container on host [192.168.50.101]
+INFO[0412] Removing container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0413] [remove/rke-log-linker] Successfully removed container on host [192.168.50.101]
+INFO[0413] Image [rancher/hyperkube:v1.20.4-rancher1] exists on host [192.168.50.101]
+INFO[0413] Starting container [kube-scheduler] on host [192.168.50.101], try #1
+INFO[0414] [controlplane] Successfully started [kube-scheduler] container on host [192.168.50.101]
+INFO[0414] [healthcheck] Start Healthcheck on service [kube-scheduler] on host [192.168.50.101]
+INFO[0421] [healthcheck] service [kube-scheduler] on host [192.168.50.101] is healthy
+INFO[0421] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0421] Starting container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0423] [controlplane] Successfully started [rke-log-linker] container on host [192.168.50.101]
+INFO[0423] Removing container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0424] [remove/rke-log-linker] Successfully removed container on host [192.168.50.101]
+INFO[0424] [controlplane] Successfully started Controller Plane..
+INFO[0424] [authz] Creating rke-job-deployer ServiceAccount
+INFO[0424] [authz] rke-job-deployer ServiceAccount created successfully
+INFO[0424] [authz] Creating system:node ClusterRoleBinding
+INFO[0424] [authz] system:node ClusterRoleBinding created successfully
+INFO[0424] [authz] Creating kube-apiserver proxy ClusterRole and ClusterRoleBinding
+INFO[0424] [authz] kube-apiserver proxy ClusterRole and ClusterRoleBinding created successfully
+INFO[0424] Successfully Deployed state file at [./cluster.rkestate]
+INFO[0424] [state] Saving full cluster state to Kubernetes
+INFO[0424] [state] Successfully Saved full cluster state to Kubernetes ConfigMap: full-cluster-state
+INFO[0424] [worker] Building up Worker Plane..
+INFO[0424] Checking if container [service-sidekick] is running on host [192.168.50.101], try #1
+INFO[0424] [sidekick] Sidekick container already created on host [192.168.50.101]
+INFO[0424] Image [rancher/hyperkube:v1.20.4-rancher1] exists on host [192.168.50.101]
+INFO[0425] Starting container [kubelet] on host [192.168.50.101], try #1
+INFO[0426] [worker] Successfully started [kubelet] container on host [192.168.50.101]
+INFO[0426] [healthcheck] Start Healthcheck on service [kubelet] on host [192.168.50.101]
+INFO[0431] [healthcheck] service [kubelet] on host [192.168.50.101] is healthy
+INFO[0432] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0432] Starting container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0434] [worker] Successfully started [rke-log-linker] container on host [192.168.50.101]
+INFO[0434] Removing container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0435] [remove/rke-log-linker] Successfully removed container on host [192.168.50.101]
+INFO[0435] Image [rancher/hyperkube:v1.20.4-rancher1] exists on host [192.168.50.101]
+INFO[0435] Starting container [kube-proxy] on host [192.168.50.101], try #1
+INFO[0436] [worker] Successfully started [kube-proxy] container on host [192.168.50.101]
+INFO[0436] [healthcheck] Start Healthcheck on service [kube-proxy] on host [192.168.50.101]
+INFO[0441] [healthcheck] service [kube-proxy] on host [192.168.50.101] is healthy
+INFO[0441] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0442] Starting container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0443] [worker] Successfully started [rke-log-linker] container on host [192.168.50.101]
+INFO[0443] Removing container [rke-log-linker] on host [192.168.50.101], try #1
+INFO[0444] [remove/rke-log-linker] Successfully removed container on host [192.168.50.101]
+INFO[0444] [worker] Successfully started Worker Plane..
+INFO[0444] Image [rancher/rke-tools:v0.1.72] exists on host [192.168.50.101]
+INFO[0445] Starting container [rke-log-cleaner] on host [192.168.50.101], try #1
+INFO[0447] [cleanup] Successfully started [rke-log-cleaner] container on host [192.168.50.101]
+INFO[0447] Removing container [rke-log-cleaner] on host [192.168.50.101], try #1
+INFO[0448] [remove/rke-log-cleaner] Successfully removed container on host [192.168.50.101]
+INFO[0448] [sync] Syncing nodes Labels and Taints
+INFO[0448] [sync] Successfully synced nodes Labels and Taints
+INFO[0448] [network] Setting up network plugin: calico
+INFO[0448] [addons] Saving ConfigMap for addon rke-network-plugin to Kubernetes
+INFO[0448] [addons] Successfully saved ConfigMap for addon rke-network-plugin to Kubernetes
+INFO[0448] [addons] Executing deploy job rke-network-plugin
+INFO[0464] [addons] Setting up coredns
+INFO[0464] [addons] Saving ConfigMap for addon rke-coredns-addon to Kubernetes
+INFO[0464] [addons] Successfully saved ConfigMap for addon rke-coredns-addon to Kubernetes
+INFO[0464] [addons] Executing deploy job rke-coredns-addon
+INFO[0484] [addons] CoreDNS deployed successfully
+INFO[0484] [dns] DNS provider coredns deployed successfully
+INFO[0484] [addons] Setting up Metrics Server
+INFO[0484] [addons] Saving ConfigMap for addon rke-metrics-addon to Kubernetes
+INFO[0484] [addons] Successfully saved ConfigMap for addon rke-metrics-addon to Kubernetes
+INFO[0484] [addons] Executing deploy job rke-metrics-addon
+INFO[0507] [addons] Metrics Server deployed successfully
+INFO[0507] [ingress] Setting up nginx ingress controller
+INFO[0507] [ingress] removing admission batch jobs if they exist
+INFO[0508] [addons] Saving ConfigMap for addon rke-ingress-controller to Kubernetes
+INFO[0509] [addons] Successfully saved ConfigMap for addon rke-ingress-controller to Kubernetes
+INFO[0509] [addons] Executing deploy job rke-ingress-controller
+INFO[0546] [ingress] removing default backend service and deployment if they exist
+INFO[0547] [ingress] ingress controller nginx deployed successfully
+INFO[0547] [addons] Setting up user addons
+INFO[0547] [addons] no user addons defined
+INFO[0547] Finished building Kubernetes cluster successfully
+
